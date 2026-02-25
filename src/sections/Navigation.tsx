@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface NavigationProps {
@@ -40,8 +40,8 @@ const Navigation = ({ scrollY }: NavigationProps) => {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-            ? 'bg-brand-bg/80 backdrop-blur-xl border-b border-brand-border'
-            : 'bg-transparent'
+          ? 'bg-brand-bg/80 backdrop-blur-xl border-b border-brand-border'
+          : 'bg-transparent'
           } ${!mounted ? '' : isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,18 +49,13 @@ const Navigation = ({ scrollY }: NavigationProps) => {
             {/* Logo */}
             <a
               href="#"
-              className="flex items-center gap-2 group"
+              className="flex text-xl items-center gap-2 group"
               onClick={(e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
-              <div className="w-8 h-8 rounded-lg bg-brand-beige flex items-center justify-center group-hover:shadow-glow transition-shadow duration-300">
-                <Sparkles className="w-5 h-5 text-brand-bg" />
-              </div>
-              <span className="text-lg font-semibold text-white">
-                AI Visibility
-              </span>
+              <img src="/logo_03.png" alt="Logo" className="h-12 w-auto" />
             </a>
 
             {/* Desktop Navigation */}

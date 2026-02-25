@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, Twitter, Linkedin, Github, Youtube } from 'lucide-react';
+import { Twitter, Linkedin, Github, Youtube } from 'lucide-react';
 
 const footerLinks = {
   Product: [
@@ -60,10 +60,7 @@ const Footer = () => {
           {/* Brand column */}
           <div className="col-span-2">
             <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-brand-beige flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-brand-bg" />
-              </div>
-              <span className="text-lg font-semibold text-white">AI Visibility</span>
+              <img src="/logo_03.png" alt="Logo" className="h-12 w-auto" />
             </a>
             <p className="text-sm text-white/50 mb-6 max-w-xs">
               Track, analyze, and optimize your brand's presence across AI platforms. The future of brand monitoring.
