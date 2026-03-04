@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Check, Sparkles, Zap, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
+import Link from 'next/link';
 
 const plans = [
   {
@@ -146,8 +147,8 @@ const Pricing = () => {
             <div
               key={index}
               className={`relative rounded-2xl transition-all duration-700 ${plan.popular
-                  ? 'bg-gradient-to-b from-brand-beige/10 to-transparent border-2 border-brand-beige/30 scale-105 z-10'
-                  : 'bg-white/[0.02] border border-white/10 hover:border-white/20'
+                ? 'bg-gradient-to-b from-brand-beige/10 to-transparent border-2 border-brand-beige/30 scale-105 z-10'
+                : 'bg-white/[0.02] border border-white/10 hover:border-white/20'
                 } ${!mounted ? 'opacity-0 translate-y-12' : isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: `${400 + index * 100}ms` }}
             >
@@ -198,14 +199,19 @@ const Pricing = () => {
                 </div>
 
                 {/* CTA */}
-                <Button
-                  className={`w-full mb-8 ${plan.popular
+                <Link
+                  href={plan.name === 'Enterprise' ? '/login' : `/checkout?plan=${plan.name.toLowerCase()}`}
+                  className="block mb-8"
+                >
+                  <Button
+                    className={`w-full ${plan.popular
                       ? 'bg-brand-beige text-brand-bg hover:bg-brand-beige/90'
                       : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
-                    }`}
-                >
-                  {plan.cta}
-                </Button>
+                      }`}
+                  >
+                    {plan.cta}
+                  </Button>
+                </Link>
 
                 {/* Features */}
                 <div className="space-y-3">

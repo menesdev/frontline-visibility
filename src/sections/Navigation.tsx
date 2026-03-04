@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 interface NavigationProps {
   scrollY: number;
@@ -74,19 +75,21 @@ const Navigation = ({ scrollY }: NavigationProps) => {
 
             {/* CTA Buttons */}
             <div className="hidden md:flex items-center gap-3">
-              <Button
-                variant="ghost"
-                className="text-sm text-white/70 hover:text-white hover:bg-white/5"
-                onClick={() => scrollToSection('#pricing')}
-              >
-                Sign In
-              </Button>
-              <Button
-                className="text-sm bg-brand-beige text-brand-bg hover:bg-brand-beige/90 font-medium"
-                onClick={() => scrollToSection('#pricing')}
-              >
-                Get Started
-              </Button>
+              <Link href="/login">
+                <Button
+                  variant="ghost"
+                  className="text-sm text-white/70 hover:text-white hover:bg-white/5"
+                >
+                  Sign In
+                </Button>
+              </Link>
+              <Link href="/checkout">
+                <Button
+                  className="text-sm bg-brand-beige text-brand-bg hover:bg-brand-beige/90 font-medium"
+                >
+                  Get Started
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -120,19 +123,23 @@ const Navigation = ({ scrollY }: NavigationProps) => {
             </button>
           ))}
           <div className="flex flex-col gap-4 mt-8">
-            <Button
-              variant="outline"
-              className="w-48 border-white/20 text-white hover:bg-white/5"
-              onClick={() => scrollToSection('#pricing')}
-            >
-              Sign In
-            </Button>
-            <Button
-              className="w-48 bg-brand-beige text-brand-bg hover:bg-brand-beige/90 font-medium"
-              onClick={() => scrollToSection('#pricing')}
-            >
-              Get Started
-            </Button>
+            <Link href="/login">
+              <Button
+                variant="outline"
+                className="w-48 border-white/20 text-white hover:bg-white/5"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sign In
+              </Button>
+            </Link>
+            <Link href="/checkout">
+              <Button
+                className="w-48 bg-brand-beige text-brand-bg hover:bg-brand-beige/90 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Get Started
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
